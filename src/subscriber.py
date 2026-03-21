@@ -10,5 +10,5 @@ def callback(msg):
 rospy.init_node('command_listener')
 
 # Имя топика должно совпадать с тем, куда пишет publisher!
-rospy.Subscriber('/command', Twist, callback)
+rospy.Subscriber('/turtel/cmd_vel', Twist, callback)
 rospy.spin()
