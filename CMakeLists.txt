@@ -114,7 +114,7 @@ catkin_install_python(PROGRAMS
 )
 
 install(PROGRAMS
-  src/start_chain.sh
+  src/generaition.sh
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
