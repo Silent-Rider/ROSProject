@@ -17,8 +17,8 @@ trap cleanup EXIT INT TERM
 
 echo "Spawning turtles..."
 for ((i=2; i<=TURTLES_COUNT; i++)); do
-  x=$(( (i - 1) % 10 + 1 ))
-  y=$(( (i - 1) % 10 + 1 ))
+  x=$(( RANDOM % 10 + 1 ))
+  y=$(( RANDOM % 10 + 1 ))
 
   rosservice call /spawn "{x: ${x}.0, y: ${y}.0, theta: 0.0, name: 'turtle${i}'}" >/dev/null
 
@@ -28,7 +28,6 @@ for ((i=2; i<=TURTLES_COUNT; i++)); do
   rosrun rosproject motion.py _leader:=${leader} _follower:=${follower} &
   pids+=($!)
 
- # sleep 0.2
 done
 
 wait

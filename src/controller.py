@@ -6,7 +6,7 @@ class FollowController:
         self.k_ang = k_ang
         self.stop_distance = stop_distance
 
-    def compute_delta_move(self, leader_pose, follower_pose):
+    def compute_velocity(self, leader_pose, follower_pose):
         dx = leader_pose.x - follower_pose.x
         dy = leader_pose.y - follower_pose.y
 
@@ -14,7 +14,6 @@ class FollowController:
         target_angle = math.atan2(dy, dx)
         angle_error = target_angle - follower_pose.theta
 
-        # нормализация угла в диапазон [-pi, pi]
         while angle_error > math.pi:
             angle_error -= 2 * math.pi
         while angle_error < -math.pi:

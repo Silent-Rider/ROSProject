@@ -3,8 +3,11 @@ import rospy
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
 import sys
-sys.path.append('/home/user2/catkin_ws/src/ROSProject/src')
-from move import FollowController
+import os
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, current_dir)
+from controller import FollowController
 
 class FollowerNode:
     def __init__(self):
@@ -34,7 +37,7 @@ class FollowerNode:
         if self.leader_pose is None or self.follower_pose is None:
             return
 
-        v, w = self.move.compute_delta_move(self.leader_pose, self.follower_pose)
+        v, w = self.move.compute_velocity(self.leader_pose, self.follower_pose)
 
         cmd = Twist()
         cmd.linear.x = v

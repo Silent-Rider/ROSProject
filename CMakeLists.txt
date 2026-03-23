@@ -114,11 +114,11 @@ catkin_install_python(PROGRAMS
 )
 
 install(PROGRAMS
-  src/generaition.sh
+  src/generate.sh
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-install(DIRECTORY src/
+install(DIRECTORY launch/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
 )
 

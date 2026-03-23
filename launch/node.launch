@@ -4,8 +4,8 @@
 
 
   <node pkg="rosproject"
-        type="generaition.sh"
-        name="generaition"
+        type="generate.sh"
+        name="generate"
         args="$(arg turtles_count)"
         output="screen"/>
 </launch>
