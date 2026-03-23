@@ -1,0 +1,12 @@
+<launch>
+ 
+  <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" output="screen"/>
+
+
+  <node pkg="rosproject"
+        type="generaition.sh"
+        name="generaition"
+        args="$(arg turtles_count)"
+        output="screen"/>
+</launch>
+

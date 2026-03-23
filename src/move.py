@@ -6,7 +6,7 @@ class FollowController:
         self.k_ang = k_ang
         self.stop_distance = stop_distance
 
-    def compute_cmd(self, leader_pose, follower_pose):
+    def compute_delta_move(self, leader_pose, follower_pose):
         dx = leader_pose.x - follower_pose.x
         dy = leader_pose.y - follower_pose.y
 
@@ -27,3 +27,4 @@ class FollowController:
             v = self.k_lin * distance
 
         return v, w
+

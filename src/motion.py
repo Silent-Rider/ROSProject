@@ -2,6 +2,8 @@
 import rospy
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
+import sys
+sys.path.append('/home/user2/catkin_ws/src/ROSProject/src')
 from move import FollowController
 
 class FollowerNode:
@@ -32,7 +34,7 @@ class FollowerNode:
         if self.leader_pose is None or self.follower_pose is None:
             return
 
-        v, w = self.move.compute_cmd(self.leader_pose, self.follower_pose)
+        v, w = self.move.compute_delta_move(self.leader_pose, self.follower_pose)
 
         cmd = Twist()
         cmd.linear.x = v
